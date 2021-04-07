@@ -1,0 +1,8 @@
+---
+name: JoinQuitMessage
+version: 1.0.0
+main: ItzIKen\JQM\Main
+api: 3.18.1
+commands:
+author: ItzIKen
+...
