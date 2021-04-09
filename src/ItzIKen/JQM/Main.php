@@ -3,30 +3,28 @@
 namespace ItzIKen\JQM;
 
 use pocketmine\event\Listener;
+use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
-use pocketmine\plugin\PluginBase;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use pocketmine\Player;
 
 class Main extends PluginBase implements Listener {
 
-    public function onEnable()
-    {
-        $this->getServer()->getLogger()->notice(" Attivo JoinQuitMessage by ItzIKen aka MelTheDead");
+    public function onEnable(){
+        $this->getLogger()->info("JQM Enable");
+        $this->saveDefaultConfig();
     }
 
-    public function onDisable()
-    {
-        $this->getServer()->getLogger()->notice(" Disattivato JoinQuitMessage by ItzIKen aka MelTheDead");
-    }
-
-    public function onJoin(PlayerJoinEvent $event) {
-        $player = $event->getPlayer();
-        $event->setJoinMessage("§a+§r" . $player->getName() . "!");
-
-    }
-
-    public function onQuit(PlayerQuitEventEvent $event) {
-        $player = $event->getPlayer();
-        $event->setQuitMessage("§c-§r" . $player->getName() . "!");
+    public function onCommand(CommandSender $sender, Command $cmd, String $label, array $args) : bool{
+        switch($cmd->getName()) {
+            case "rand":
+                if($sender instanceof Player){
+                    $sender->sendMessage("ยง7JQM by ItzIKen");
+                }
+                return true;
+        }
+        return true;
     }
 }
