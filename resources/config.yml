@@ -7,5 +7,5 @@
 # |_____|\__/___|_____|_|\_\___|_| |_|
 #
 
-JoinMessage: "§a+§7{player"
-QuitMessage: "§c-§7{player"
+JoinMessage: "§a+§7{player}"
+QuitMessage: "§c-§7{player}"
